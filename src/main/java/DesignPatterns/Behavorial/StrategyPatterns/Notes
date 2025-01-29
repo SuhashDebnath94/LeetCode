@@ -1,0 +1,91 @@
+Strategy Pattern is about using composition rather than inheritance
+Like Inheritance is not intended for code reuse
+
+The strategy pattern defines a family of algorithms, encapsulates each one, and makes them interchangable.
+Lets say you have a set of algorithms,like A, B, C, so you can plug and play with strategy design pattern.
+Strategy lets the algorithm vary independently from the clients that use it. Like we decouple the algorithm from the one using the algorithm.
+
+Lets say we have a Duck class
+
+Duck:
+quack()
+display()
+fly()
+
+Inherited by
+WildDuck.
+display()
+
+CityDuck.
+display()
+
+Now lets say we have a rubberDuck which should not be flying, but we can argue that we can override the fly method and make it not fly
+Not flying is a type of flying
+But we are heading down a sliperry slope with this.
+
+Lets say we have a moutainDuck which has its own flying behaviour, so we override and implement and there is another cloudDuck which also
+has the same flying behaviour as the mountainDuck
+
+So we have duplicate code.
+
+Solution:
+We have interfaces for the behaviours
+QuackInterface
+quack()
+
+FlyInterface
+fly()
+
+
+SimpleQuack implements QuackInterface()
+NoQuack implements QuackInterface()
+
+Similarly we could have different FlyInterface implementations.
+
+Suddenly we dont need separate classes such as RubberDucks and Cloud Ducks and Mountain Ducks, we just need behaviours
+We can just inject the behaviour like dependency injection
+
+class Duck{
+
+    FlyInterface flyBehaviour;
+    QuackInterface quackBehaviour;
+    DisplayInterface displayBehaviour;
+
+    Duck( FlyInterface flyBehaviour, QuackInterface quackBehaviour, DisplayInterface displayBehaviour){
+    ..
+    }
+
+
+The Strategy Design Pattern is a behavioral design pattern that enables selecting an algorithm’s behavior at runtime.
+Instead of implementing multiple conditional statements or switch cases,
+the pattern allows a class's behavior to be selected dynamically by encapsulating algorithms within individual classes.
+
+Problem It Aims to Solve
+    In situations where a class needs to support multiple behaviors or algorithms that can change during runtime,
+    hardcoding them in the class leads to:
+        1) Tightly Coupled Code: Hardcoded behaviors make the code rigid and difficult to extend.
+        2) Reduced Maintainability: Adding or modifying behaviors requires changes in the class itself.
+        3) Duplication of Logic: Similar algorithms might be implemented in different places, leading to redundancy.
+    The Strategy Pattern solves these problems by allowing the behavior to be defined in separate classes and injected
+    into the context class dynamically.
+
+Key Concepts
+    1) Strategy Interface: Defines the common interface for all supported algorithms.
+    2) Concrete Strategies: Implement the algorithms defined in the interface.
+    3) Context: Maintains a reference to a strategy object and delegates the algorithm's execution to the strategy.
+
+Real-World Use Cases
+    1) Payment Gateways: Switching between payment methods like credit cards, PayPal, or cryptocurrency.
+    2) Sorting Algorithms: Choosing sorting algorithms dynamically based on the data size or type.
+    3) Compression Libraries: Selecting a compression algorithm (e.g., ZIP, GZIP, RAR).
+    4) Authentication Mechanisms: Implementing different login strategies (e.g., password, OAuth, biometric).
+    5) Game AI: Switching strategies for NPC behavior, such as attack, defend, or evade.
+
+When to Use:
+    1) Multiple Algorithms: When a class supports multiple algorithms that can vary independently.
+    2) Dynamic Behavior: When the algorithm needs to be selected or changed at runtime.
+    3) Open-Closed Principle: When you want to add new behaviors without modifying existing code.
+When Not to Use:
+    1) Single Behavior: If there is only one behavior, the pattern introduces unnecessary complexity.
+    2) Too Many Strategies: If there are too many strategies, it can become difficult to manage and maintain.
+    3) Simple Conditional Logic: For simple use cases, conditional statements might be easier and more readable than creating multiple strategy classes.

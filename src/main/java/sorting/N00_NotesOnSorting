@@ -1,0 +1,77 @@
+Selection sort
+        3, 5, 7, 8, 15, 1
+
+        Step 1 :
+            low= 0
+            Find smallest element and swap with low
+            low++;
+            1, 5, 7, 8, 15, 3
+        Step 2:
+            low=1;
+            Find smallest element and swap with low
+            low++;
+            1, 3, 7, 8, 15, 3
+        continue till n times
+
+        TC= O(nxn)
+
+Bubble Sort
+    Iterate from 0 to n
+    if arr[n]>arr[n+1] swap arr[n] and arr[n+1]
+    this wil take the largest element to the last
+    do this iteration n times making the last index smaller one by one
+
+    Time complexity O(n*n)
+
+Insertion Sort
+     3,1,4,2,6,31,20
+      Step 1:
+        Check if 3 is in right position compared to 5 if no
+            swap
+      Step 2:
+       1,3,4,2,6,31,20
+        Check if 3 is in right position wrt 4 if yes move on
+
+      Step 3:
+        Check if 4 is in right position wrt 2
+        no
+        swap 4,2
+        1,3,2,4,6,31,20
+
+        swap again:
+        1,2,3,4,6,31,20
+
+     Time complexity O(n*n)
+
+Quick sort
+    Algorithm:
+        Step 1: We will divide the array into 2 parts recursively, till the two parts have 1 element each
+        Step 2: When they do have 1 element each we will merge and create a sorted array from the 2 sorted arrays
+        Step 3: We will merge recursively till we get the actual array.
+
+        TC= O(nlogn)
+        SC= O(n)
+
+Merge sort
+    The intuition is to take each element and put it in its sorted position, then the array will be sorted by itself.
+    So take first element put all elements smaller than it on the left and all elements larger than it on the right.
+
+    Step 1:
+        pivot= Arr[low]
+        i=0
+        j= n-1
+
+    Step 2:
+        Find the first element greater than the pivot, point i to it
+        Find the first element smaller than the pivot, point j to it
+        swap arr[i] and arr[j]
+    Step 3:
+        Do the same thing again.
+        Do it till i>j
+
+    step 4:
+        Swap pivot and j
+
+    Now we have 2 partitions, one before pivot and one after pivot
+    We call 4 the partition index.
+    Do the above exercise for both the partitions recursively.

@@ -1,0 +1,5 @@
+The Builder Design Pattern simplifies the process of creating complex objects step by step. Instead of a large constructor with many parameters,
+it provides a clear and readable way to construct an object by setting only the required fields.
+
+In frameworks like Lombok, the @Builder annotation simplifies creating objects with many fields.
+

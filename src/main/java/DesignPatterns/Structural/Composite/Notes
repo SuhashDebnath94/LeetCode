@@ -1,0 +1,40 @@
+The Composite Design Pattern is a structural design pattern that enables treating individual objects and compositions of
+objects uniformly.
+It allows you to build a tree structure of objects where each object in the tree can be either a composite
+(containing other objects) or a leaf (a single object).
+
+Problem It Aims to Solve
+    1) Complex Hierarchies:
+            Managing a tree-like structure where objects may contain other objects.
+    2) Uniform Treatment of Objects:
+            Need to perform operations on both individual objects (leaves) and compositions (nodes) without checking their types.
+    3) Code Duplication:
+            Avoid duplicating logic for handling single objects and collections of objects.
+The Composite Pattern solves these issues by allowing clients to treat individual objects and composites uniformly through a common interface.
+
+
+Key Concepts
+    Component Interface:
+         Declares common operations that can be performed on both leaf and composite objects.
+    Leaf:
+        Represents individual objects in the hierarchy. Implements the component interface but does not contain child components.
+    Composite:
+        Represents a group of objects. Implements the component interface and stores child components.
+    Client:
+        Interacts with objects in the hierarchy through the component interface.
+
+When to Use:
+    Tree-Like Structures:
+        When dealing with hierarchical structures like file systems or organizational charts.
+    Uniform Operations:
+        When the same operations need to be performed on both individual objects and groups of objects.
+    Dynamic Composition:
+        When objects in the hierarchy need to be added or removed dynamically.
+
+When Not to Use:
+    Flat Structures:
+        When the hierarchy is shallow, the overhead of implementing the Composite pattern might not be worth it.
+    Unrelated Operations:
+        If operations vary significantly between individual objects and composites, the pattern may complicate the design.
+    Performance-Sensitive Applications:
+        Traversing the hierarchy can be inefficient for large, deeply nested structures.

@@ -1,0 +1,26 @@
+The Iterator Design Pattern is a behavioral design pattern that provides a way to
+access elements of a collection (like a list or a set) sequentially without exposing the underlying structure.
+It decouples the client code from the collection's internal details,
+making it easy to traverse complex data structures in a consistent way.
+
+
+Encapsulation:
+    The internal details of the collection are hidden from the client, promoting encapsulation.
+
+Consistency:
+    The same traversal logic can be applied to different types of collections, providing a uniform interface.
+
+Simplifies Collection Traversal:
+    The client doesn't need to know how the collection is structured (e.g., list, tree, graph).
+
+Practical uses:
+
+    Java Collections Framework:
+        The java.util.Iterator interface is a direct implementation of the Iterator Pattern. It allows traversal of collections like List, Set, and Map.
+
+    Database Result Sets:
+        In JDBC, the ResultSet object uses an iterator to traverse rows of query results.
+
+    File System Traversal:
+        Iterators can be used to navigate directories and files.
+

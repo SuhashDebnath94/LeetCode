@@ -1,0 +1,32 @@
+The Mediator Design Pattern is a behavioral design pattern that facilitates communication between
+different objects (colleagues) without them having to refer to each other explicitly.
+Instead, they communicate through a central mediator object.
+This reduces the coupling between components and makes the system easier to maintain and modify.
+
+Problem:
+In complex systems, components often need to communicate with each other.
+If each component directly references and interacts with others, the system becomes tightly coupled, making it difficult to:
+    1) Add or remove components: Every change to a component may require changes in other components that interact with it.
+    2) Understand and maintain the codebase: The system becomes a tangled web of interconnections, leading to a "spaghetti code" structure.
+The Mediator pattern addresses this by centralizing communication, where components (colleagues) interact only with the mediator, not directly with each other.
+
+
+example:
+    1) In a chatroom, users should not directly send messages to each other but instead use the chatroom as an intermediary.
+
+    2) Airplanes should communicate with a central air traffic controller, not directly with each other, to avoid collisions.
+
+
+Real-World Use Cases
+    GUI Applications:
+        Mediators coordinate interactions between different UI components like buttons, checkboxes, and text fields.
+        Example: JavaFX Mediator pattern or Swing.
+
+    Messaging Systems:
+        Platforms like Slack or WhatsApp internally use a mediator-like mechanism for message routing.
+
+    Air Traffic Control:
+        Centralized communication between planes and control towers.
+
+    Event-Driven Systems:
+        Libraries like EventBus (Google Guava) or Mediator.js in JavaScript implement mediator-like behavior.

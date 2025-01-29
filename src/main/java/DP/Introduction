@@ -1,0 +1,50 @@
+Tabulation vs Memoization
+
+Tabulation is bottom up
+Memoization is top down.
+
+Memoization -> Tabulation -> Space Optimization.
+
+In fibonacci:
+    f(n)= f(n-1) + f(n-2)
+
+
+We apply DP when there are overlapping subproblems
+
+    In memoization:
+        We store the value of a overlapping subproblem in a datastructure
+
+    So 1) declare an array of size n+1
+        2) if value is present in array get from there
+
+    Memoization:
+        f(n){
+            if(n==0) return 0;
+            if(n==1) return 1;
+            if(dp[n] != -1) return dp[n]);
+
+            dp[n]=f(n-1)+dp(n-2);
+
+            return dp[n];
+
+           }
+
+    T = O(n)
+    S = O(n) + recursion stack space
+
+    For tabulation:
+         for fibonacci:
+
+            dp[0]=0;
+            dp[1]=1;
+
+            for(int i=2;i<n;i++)
+            {
+                dp[i]=dp[i-1] + dp[i-2]
+               }
+
+
+
+Skipped 2D DP and DP on grids to come back later. (8-14)
+21-25 skipped
+

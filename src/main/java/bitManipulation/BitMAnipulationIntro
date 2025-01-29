@@ -1,0 +1,50 @@
+What is Binary?
+    10
+    10/2    -> 0
+    5/2     -> 1
+    2/2     -> 0
+    1
+
+    1010 is the binary representation of 10.
+
+    0 x 2^0
+  + 1 x 2^1
+  + 0 x 2^2
+  + 1 X 2^3
+
+  this gives 10
+
+The operators:
+    1) & AND operator: 1 & 1 = 1
+                        1 & 0 = 0
+                        0 & 0 = 0
+    2) | OR operator : 1 | 1 = 1
+                        1 | 0 = 1
+                        0 | 0 = 0
+    3) ^ XOR operator :
+                Even 1s or Even 0s give 0
+                Odd 1s or Odd 0s give 1
+
+                    1 ^ 1 = 0
+                    1 ^ 0 = 1
+                    0 ^ 0 = 0
+
+    4) NOT operator :
+                Flips the bits makes 1 as 0 and 0 as 1
+
+    5) Right shift >> operator:
+            so if we rightshift 5 (5 >> 1) which is 101 it will eleminate the rightmost bit and it will turn to 010 which is 4
+            So it can be said that if you right shift by 1 then the number decrements by 1
+
+            So if we do 10 >> 3 1010 becomes 0001
+            This is kind of equivalent to dividing by 2,  3 times
+            so it can be said x >> n is equivalent to x/2^n
+
+    6) Left shift operator <<:
+            101 << 2 we will move 101 to the left by 2 places and add 2 0s to the right
+            so it becomes 10100 which is 20
+            so x << n is equivalent to x * 2^n
+
+
+Done till 45mins
+

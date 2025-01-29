@@ -1,0 +1,31 @@
+The adaptor pattern lets classes work together that could not otherwise because of incompatibe Interfaces
+
+Lets say we have ClientClass which wants to call specificRequest Method of Adaptee class
+
+Client{
+
+ }
+
+
+ TargetInterface{
+        Request()
+        }
+
+ Adaptor implements TargetInterface{
+
+
+ request(){
+    this.adaptee.specificRequest();
+ }
+
+ }
+
+
+ Adaptee{
+
+    specificRequest()
+
+}
+
+
+TargetInterface target = new Adaptor(new Adaptee())

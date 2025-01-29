@@ -1,0 +1,6 @@
+Array is a Data structure which contains a collection of similar elements.
+When you define an array of size 6 an array of some garbage values is declared.
+Max size can be 10^7
+you access an array by index
+
+When we declare an array, it stores the first element of index 0 at some random memory location.

@@ -1,0 +1,48 @@
+Binary Search:
+    Arr: { 1, 3, 6, 9, 11}
+    Find the first occurence of 9
+
+    Divide the array to get the mid
+    if mid is less than 9 do the same recursively on the right part of the array.
+
+Linear search time complexity is O(n) and works on unsorted arrays.
+Binary search time complexity is O(logn) and works on sorted arrays only.
+
+
+Lower bound of x:
+    1st element in the array that is greater than or equal to x
+    in an array [ 1, 3, 5, 7, 9, 10]
+    lb of 7 is 7 itself since the first element greater than or equal to 7 is 7 itself.
+    if element is 8 the the lower bound is 9
+    if element is 11 then the lb is -1
+
+upper bound of x:
+    1st element in the array that is lesser than or equal to x
+    in an array [ 1, 3, 5, 7, 9, 10]
+    ub of 7 is 7 itself since the first element greater than 7 is 5.
+    if element is 8 the the upper bound is 7
+    if element is 11 then the ub is 10
+
+Binary Search on Answers:
+    We do an operation on index 1
+    We do the same operation on index 2
+    We do the same operation on index 3
+    We do the same operation on index 4
+
+    So suppose we have a question like find the minimum divisor less than theshold with an array
+    Given an array of integers nums and an integer threshold, we will choose a positive integer divisor, divide all the array by it, and sum the division's result. Find the smallest divisor such that the result mentioned above is less than or equal to threshold.
+    Each result of the division is rounded to the nearest integer greater than or equal to that element. (For example: 7/3 = 3 and 10/2 = 5).
+    The test cases are generated so that there will be an answer.
+
+    Example 1:
+
+    Input: nums = [1,2,5,9], threshold = 6
+    Output: 5
+    Explanation: We can get a sum to 17 (1+2+5+9) if the divisor is 1.
+    If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the sum will be 5 (1+1+1+2).
+
+    So we see as we are increasing divisor, the answer is increasing.
+    We get a number of answers.
+    We do binary search on the answers.
+
+    In this we see the lowest divisor is 1 and the highest divisor is the max of the array.

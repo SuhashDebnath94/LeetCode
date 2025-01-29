@@ -1,0 +1,30 @@
+The command Pattern encapsulates a request, as an object, thereby letting you parameterize other objects, with different requests,
+queue, or log requests, and support undoable operations.
+
+So you got an object and someone sends a request to that object, so we are trying to encapsulate that request.
+So we can take a bunch of these encapsulated commands and compose them into some kind of context.
+
+The Command Design Pattern is a behavioral pattern that encapsulates a request as an object, allowing you to parameterize clients with different requests, queue requests, and log the execution of requests.
+It provides a way to decouple the sender of a request from its receiver, promoting flexibility and scalability.
+
+Encapsulation of Requests:
+    Commands encapsulate a request as an object, decoupling the sender (Invoker) from the receiver.
+
+Flexibility in Execution:
+    Commands can be logged, queued, or executed later, making this pattern suitable for undo/redo operations.
+
+Open/Closed Principle:
+    New commands can be added without modifying existing code.
+
+Practical uses:
+    GUI Button Actions:
+        Each button in a GUI can encapsulate its action as a command, decoupling the GUI from the action logic.
+
+    Task Queues:
+        Background jobs or task queues, where tasks are queued and executed later, often use the Command Pattern.
+
+    Transactional Systems:
+        Commands can be used to encapsulate actions and provide undo/redo functionality.
+
+
+

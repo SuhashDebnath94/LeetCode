@@ -1,0 +1,51 @@
+Suppose there are a lot of different classes A, B, C, D, E, F,  G, H, I, J
+These are interdependent on each other
+Lets say A uses, B, uses C, uses D, uses H, uses J, uses I and so on
+
+So there is this highly decoupled system and there is complex wiring between the components
+Facade pattern suggests that there should be a easier way to do this complex wiring
+
+So a facade is a class that invokes methods on a bunch of other classes
+The facade is independent of what is happening inside, it simplifies the interaction with the application for you.
+
+
+The Facade Design Pattern is a structural design pattern that provides a simplified interface to a complex system.
+It hides the complexities of the subsystem by providing a unified interface, making the subsystem easier to use.
+
+Why Use the Facade Pattern?
+    To simplify client interaction with complex subsystems.
+    To reduce coupling between the client and the subsystems.
+    To improve readability and maintainability of the code.
+
+GFG:
+In the above diagram, Consider for example a programming environment that gives applications access to its compiler subsystem.
+
+This subsystem contains classes such as Scanner,Parser, ProgramNode, BytecodeStream, and ProgramNodeBuilder that implement the compiler.
+Compiler class acts as a facade: It offers clients a single, simple interface to the compiler subsystem.
+It glues together the classes that implement compiler functionality without hiding them completely.
+The compiler facade makes life easier for most programmers without hiding the lower-level functionality from the few that need it.
+
+1. Facade (Compiler)
+    Facade knows which subsystem classes are responsible for a request.
+    It delegate client requests to appropriate subsystem objects.
+
+2. Subsystem classes (Scanner, Parser, ProgramNode, etc.)
+    It implement subsystem functionality.
+    It handle work assigned by the Facade object.
+    It have no knowledge of the facade; that is, they keep no references to it.
+3. Interface
+    The Interface in the Facade Design Pattern refers to the set of simplified methods that the facade exposes to the client.
+    It hides the complexities of the subsystem, ensuring that clients interact only with high-level operations, without dealing with the underlying details of the system.
+    Facade Method Design Pattern collaborate in different way
+    Client communicate with the subsystem by sending requests to Facade, which forwards them to the appropriate subsystem objects.
+    The Facade may have to do work of its own to translate it inheritance to subsystem interface.
+    Clients that use the Facade don’t have to access its subsystem objects directly.
+
+Steps to implement Facade Design Pattern
+Below are the simple steps to implement the Facade Design Pattern:
+
+Step 1: First, determine the complex subsystems or components that the client needs to interact with.
+Step 2: Build a facade class that serves as the middle layer between the client and the subsystems. This class should offer simplified methods that wrap the interactions with the subsystems.
+Step 3: Expose a clear, high-level interface in the facade class. This interface will include the methods that the client will use, hiding the internal complexity.
+Step 4: Inside the facade methods, delegate the requests to the appropriate subsystem classes to perform the actual operations.
+Step 5: The client now interacts only with the facade, which manages the underlying calls to the subsystems, simplifying the client’s experience.

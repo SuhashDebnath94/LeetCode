@@ -1,0 +1,193 @@
+The Template Method Design Pattern is a behavioral design pattern that defines the skeleton of an algorithm in a method, deferring some steps to subclasses.
+It allows subclasses to redefine certain steps of an algorithm without changing its structure.
+
+Problem It Aims to Solve
+    Repetition of Common Algorithm Structures:
+        When multiple classes share the same overall algorithm but differ in some steps, duplicating the code for the common parts can lead to maintenance issues.
+    Consistency in Workflow:
+        Without a structured approach, the sequence of operations in an algorithm might be inconsistently implemented across different subclasses.
+        The Template Method Pattern solves these issues by centralizing the common algorithm structure in a base class while allowing subclasses to customize specific steps.
+
+Key Concepts
+    Template Method:
+        A method in the base class that defines the overall structure of an algorithm. It calls abstract or hook methods that subclasses can override.
+    Abstract Methods:
+        Steps of the algorithm that must be implemented by subclasses.
+    Hook Methods (Optional):
+        Methods with default implementation in the base class that subclasses can override if needed.
+
+
+Template Method Design Pattern: Overview
+The Template Method Design Pattern is a behavioral design pattern that defines the skeleton of an algorithm in a method, deferring some steps to subclasses. It allows subclasses to redefine certain steps of an algorithm without changing its structure.
+
+Problem It Aims to Solve
+Repetition of Common Algorithm Structures:
+
+When multiple classes share the same overall algorithm but differ in some steps, duplicating the code for the common parts can lead to maintenance issues.
+Consistency in Workflow:
+
+Without a structured approach, the sequence of operations in an algorithm might be inconsistently implemented across different subclasses.
+The Template Method Pattern solves these issues by centralizing the common algorithm structure in a base class while allowing subclasses to customize specific steps.
+
+Key Concepts
+Template Method:
+
+A method in the base class that defines the overall structure of an algorithm. It calls abstract or hook methods that subclasses can override.
+Abstract Methods:
+
+Steps of the algorithm that must be implemented by subclasses.
+Hook Methods (Optional):
+
+Methods with default implementation in the base class that subclasses can override if needed.
+Example 1: Coffee and Tea Preparation
+Problem:
+The process of preparing tea and coffee involves common steps (boiling water, pouring into a cup) and specific steps (adding tea leaves or coffee). The Template Method Pattern centralizes the shared steps and delegates the unique ones to subclasses.
+
+Code:
+java
+Copy code
+// Abstract Class
+abstract class Beverage {
+    // Template Method
+    public final void prepareRecipe() {
+        boilWater();
+        brew();
+        pourInCup();
+        addCondiments();
+    }
+
+    private void boilWater() {
+        System.out.println("Boiling water");
+    }
+
+    private void pourInCup() {
+        System.out.println("Pouring into cup");
+    }
+
+    // Abstract Methods
+    protected abstract void brew();
+    protected abstract void addCondiments();
+}
+
+// Concrete Class: Tea
+class Tea extends Beverage {
+    @Override
+    protected void brew() {
+        System.out.println("Steeping the tea");
+    }
+
+    @Override
+    protected void addCondiments() {
+        System.out.println("Adding lemon");
+    }
+}
+
+// Concrete Class: Coffee
+class Coffee extends Beverage {
+    @Override
+    protected void brew() {
+        System.out.println("Dripping coffee through filter");
+    }
+
+    @Override
+    protected void addCondiments() {
+        System.out.println("Adding sugar and milk");
+    }
+}
+
+// Main Class
+public class TemplateMethodDemo {
+    public static void main(String[] args) {
+        Beverage tea = new Tea();
+        Beverage coffee = new Coffee();
+
+        System.out.println("Preparing tea:");
+        tea.prepareRecipe();
+
+        System.out.println("\nPreparing coffee:");
+        coffee.prepareRecipe();
+    }
+}
+Example 2: Data Processing
+Problem:
+Different types of data (e.g., CSV, JSON) require processing, but the overall workflow (loading, processing, saving) remains the same. The Template Method Pattern defines the workflow and delegates format-specific steps to subclasses.
+
+Code:
+java
+Copy code
+// Abstract Class
+abstract class DataProcessor {
+    // Template Method
+    public final void process() {
+        loadData();
+        processData();
+        saveData();
+    }
+
+    private void loadData() {
+        System.out.println("Loading data from source");
+    }
+
+    private void saveData() {
+        System.out.println("Saving processed data to destination");
+    }
+
+    // Abstract Methods
+    protected abstract void processData();
+}
+
+// Concrete Class: CSV Processor
+class CSVProcessor extends DataProcessor {
+    @Override
+    protected void processData() {
+        System.out.println("Processing CSV data");
+    }
+}
+
+// Concrete Class: JSON Processor
+class JSONProcessor extends DataProcessor {
+    @Override
+    protected void processData() {
+        System.out.println("Processing JSON data");
+    }
+}
+
+// Main Class
+public class TemplateMethodDemo {
+    public static void main(String[] args) {
+        DataProcessor csvProcessor = new CSVProcessor();
+        DataProcessor jsonProcessor = new JSONProcessor();
+
+        System.out.println("Processing CSV data:");
+        csvProcessor.process();
+
+        System.out.println("\nProcessing JSON data:");
+        jsonProcessor.process();
+    }
+}
+Real-World Use Cases
+    Framework Design:
+        Defining the flow of operations while allowing application developers to customize specific steps.
+        For example, Spring Framework’s AbstractApplicationContext lifecycle methods.
+    Document Generation:
+        Generating documents (e.g., PDF, Word) where the structure is the same but content rendering differs.
+    Game Development:
+        Defining a game loop with customizable steps like rendering, input handling, and updates.
+    Testing Frameworks:
+        JUnit defines a test execution sequence (@Before, @Test, @After) while allowing custom test logic.
+
+When to Use:
+    Shared Algorithm Structure:
+        When multiple classes share a common workflow or algorithm structure with variations in specific steps.
+    Consistency:
+        When enforcing a standard process or sequence is critical.
+    Framework/Library Development:
+        When creating extensible frameworks or libraries where users can provide custom behavior for certain steps.
+When Not to Use:
+    Lack of Commonality:
+        When the algorithm steps differ significantly, leading to minimal reuse of the base class logic.
+    Overhead for Small Variations:
+        When the variations are minor and do not justify the complexity of introducing an abstract base class.
+    Limited Subclassing:
+        If there are few concrete implementations and changes are rare, simpler solutions like conditional statements might suffice.
+

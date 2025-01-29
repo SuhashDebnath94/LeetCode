@@ -1,0 +1,4 @@
+package DesignPatterns.Structural.Proxy;
+
+public class ProxyInternet {
+}

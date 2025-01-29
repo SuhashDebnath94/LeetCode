@@ -1,0 +1,46 @@
+LEts say in your system you have some classes A, B, C
+These classes either inherit from some super class or implement from some interface
+
+Could be you have cat and dog and duck and teh superclass is animal
+
+So lets say at some point in your program you want to be able to use either A or B or C
+Now lets say while entering a method you dont know which type you want to create , if you knew it would not be factory.
+
+So suppose we are building a simulation of a forest which spawns these animals. Basically we are trying to have some kind of logic
+which determines which type of animal will be created.
+So we will randomize the creation and either create a cat or dog or duck
+
+A factory is responsible for holding teh business logic behind the creation of a particular type of object.
+
+So we have things which we are creating and the factory which deterines the way which these things are created.
+
+Lets say we have Random Animal factory which has createAnimal method which creates animal randomly
+and we have Balanced AnimalFactory which creates animal in a balanced way.
+
+So Balanced AnimalFactory and RandomAnimalFactory impelement the inetrface Animal Factory
+
+So by definition:
+The factory Design pattern lets you define an interface for creating an object but lets subclasses decide which class to instantiate.
+
+Interface:
+Product
+Creator
+    Product factoryMethod()
+
+The creator creates products
+
+Classes:
+ConcreteProducts are products
+
+ConcreteCreators are creators
+
+
+Suppose we are creating a game which has a ship which moves and dodges asteriods
+
+There are small, medium and big asteroid
+
+Now there is a AsteroidFactory which takes the Level and determines what kind of asteroid will be created
+
+AsteroidFactory
+Asteroid createAsteroid(Level)
+

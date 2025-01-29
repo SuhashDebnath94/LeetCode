@@ -1,0 +1,89 @@
+Decorator pattern is about
+You have an object and by sending messages directly to the object you get a response
+Now if you want to change the response you could actually do that without changing the contents of this method
+So we wrap the original object in another object
+You can do this process of wrapping the wrapper as many times as you want.
+
+The decorator pattern attaches additional responsibility to an object dynamically.
+ DEcorators provide a flexible alternative, to subclassing for extending functionality
+
+So you are dynamically making a composition of Decorator A, Decorator B and Decorator C as per requirement, which would not have been possible for subclass A, B, C
+
+Abstract class Beverage()
+    getDesc()
+    cost()
+
+
+Suppose you create a class for each type of combination of coffee
+like steamedMilkWithCaramel, SoyMilkWithCaramel, SoyMil, SteamedMilk, Espresso, and so on.
+
+This would lead to a class explosion
+
+
+You could also have boolean values for each of these, like soyMilk -> true or false and so on
+
+But you have to change the source code when you want to introduce anything new condiment or additional
+Also suppose another implementation of beverage is tea and some things dont apply to tea so it will always be false
+
+Interface Segregation principle says we should have multiple smalled interfaces rather than a big one.
+
+
+So lets say we have a Decorator which is a Beverage (implements) and also has a beverage.
+
+Component:
+method A();
+Method B();
+
+ConcreteComponent extends Component:
+Method A;
+MethodB();
+
+Decorator extends Component;
+method A();
+method B();
+
+ConcreteDecoratorA extends Decorator ;
+method A();
+method B();
+
+Concrete DecoratorB extends Decorator;
+method A();
+method B();
+
+You instantiate a concreteComponent and give that to a decorator
+
+
+Real Example:
+
+Abstract Beverage class {
+    public abstract cost();
+    }
+
+Abstract class Decorator extends Beverage{
+      public abstract cost();
+      }
+
+
+ class Expresso extends BEverage{
+
+    public cost(){
+    return 1;
+    }
+    }
+
+  class CaramelDecorator extends Decorator{
+
+    Beverage beverage;
+
+    public Caramel(Beverage b)
+    {
+        this.beverage = b;
+
+        }
+
+
+        public cost(){
+            return this.beverage.cost() +1;
+            }
+   }
+

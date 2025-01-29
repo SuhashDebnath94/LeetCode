@@ -1,0 +1,4 @@
+package DesignPatterns.Structural.FacadePattern;
+
+public class CreditService {
+}

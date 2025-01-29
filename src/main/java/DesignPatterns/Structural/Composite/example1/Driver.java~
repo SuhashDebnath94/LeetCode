@@ -1,0 +1,4 @@
+package DesignPatterns.Structural.Composite.example1;
+
+public class Driver {
+}

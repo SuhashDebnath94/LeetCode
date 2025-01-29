@@ -1,0 +1,11 @@
+The proxy Design pattern provides a surrogate or placeholder for another object in order to control access to it.
+
+There are 3 types of Proxies:
+    1) Remote Proxy: To access aresource that is remote, like on a different server or name space
+    2) Virtual proxy: Controls access to a resource that is expensive to create
+    3) Protected Proxy: Only users that are allowed to access the resource are able to access
+
+A practical application of the proxy pattern is lazy initialization or security. For example:
+
+    1) Hibernate ORM Framework: Hibernate uses proxy objects to support lazy loading. Instead of loading the actual data immediately, it creates a proxy that loads the data only when needed.
+    2) Spring AOP: Spring creates proxy objects to wrap beans and intercept method calls for cross-cutting concerns like logging, transactions, or security.

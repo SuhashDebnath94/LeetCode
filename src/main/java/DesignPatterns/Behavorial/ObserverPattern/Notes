@@ -1,0 +1,103 @@
+The Observer design pattern is a behavioral design pattern used when an object (called the subject) needs to notify multiple dependent objects (observers) about state changes.
+This pattern ensures a loose coupling between the subject and its observers, allowing for scalable and extensible systems.
+
+How It Works
+    Subject:
+        Maintains a list of observers and notifies them of state changes.
+        Provides methods for attaching, detaching, and notifying observers.
+    Observer:
+        Defines an interface or abstract class for objects that want to be notified of changes.
+        Each observer implements the interface and provides custom behavior.
+    Client:
+        Creates and connects subjects and observers.
+
+Usecases:
+    Message Broadcasting:
+        Publish-Subscribe systems where subscribers listen to publishers.
+        Example: Kafka, RabbitMQ.
+
+    Notification Systems:
+        Systems that send notifications to multiple users based on triggers (e.g., email or SMS alerts).
+
+    RXJava/RXJS:
+       Implements the Observer pattern to handle asynchronous data streams.
+
+When to Use:
+    When an object needs to notify multiple objects about changes without tight coupling.
+    For implementing publish-subscribe mechanisms.
+    When the number of observers is dynamic or unknown at compile time.
+When Not to Use:
+    Overhead: If frequent notifications aren't needed, it can add unnecessary complexity.
+    Tight Notification Loops: Misuse can lead to cyclic dependencies or infinite notification loops.
+    Performance: If there are too many observers, performance may degrade due to excessive notifications.
+
+
+In many applications, one object’s state change must be reflected in multiple dependent objects. Manually updating these dependencies can lead to tightly coupled code and is error-prone.
+The Observer pattern addresses this by:
+    Decoupling: Observers are loosely coupled to the subject. They rely on notifications rather than directly querying or controlling the subject.
+    Scalability: New observers can be added without modifying the subject
+
+Suppose we have an observable which is weather station and there are several observers which want to know weather the state of the weather has chnaged.
+
+So all these observers like phone and ipad and TV constantly can poll the weatehr station every minute to check the state change
+
+But that would be very inefficient.
+
+So what this pattern suggests is that the observable should be responsible for telling all the subscribers when it has changed
+
+So first all teh observers need to register to the observable to get the notification of teh change.
+
+The observer pattern define a one to many dependency between objects so that when one object changes state, all of its dependencies are notifed automatically.
+
+1) You have the ObservableInterface
+add(ObserverInterface)
+remove(ObserverInterface)
+notify()
+
+
+2) You have the ObserverInterface
+update()
+
+An observable has 0-many observers
+So the observable might have a collection of observers
+
+3) concreteObserverClass
+add(ObserverInterface)
+remove(ObserverInterface)
+notify()
+getState()
+setState()
+
+whenever setState is called the notify method is clled and all the observers are notified.
+
+
+weatherStation implements Observable
+add(ObserverInterface observer){
+    this.observerList.add(observer)
+    }
+remove(ObserverInterface)
+notify(){
+    forEach observers -> update
+    }
+getTemperature()
+setTemperature()
+
+
+phone implements observer
+phone(weatherStation station){
+    this.station = station;
+    }
+
+update(){
+    this.station.getTemperature()
+    }
+
+window implements observer
+update()
+
+
+WeatherStation station = new WeatherStation();
+phone p = new phone (station);
+
+station.add(display)
+station.notify()

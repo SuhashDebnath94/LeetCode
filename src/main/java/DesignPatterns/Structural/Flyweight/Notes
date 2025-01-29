@@ -1,0 +1,47 @@
+The Flyweight Design Pattern is a structural design pattern that aims to minimize memory usage by sharing as much data as possible with other similar objects.
+It achieves this by storing common parts of objects externally and reusing them across instances.
+
+The term "flyweight" refers to the lightweight nature of the objects, as they share heavy,
+immutable parts while holding only lightweight, unique data.
+
+Problem It Aims to Solve
+    In applications where a large number of similar objects are created, memory consumption can grow significantly. For instance:
+        1) Repetitive Data: Many objects may share the same or similar data, which results in redundancy.
+        2) Inefficiency: Storing this redundant data in every object wastes memory and impacts performance.
+    The Flyweight pattern addresses these problems by sharing the common parts (intrinsic state) among objects and keeping only the unique parts (extrinsic state) in each object.
+
+ Key Concepts
+     1) Intrinsic State: The shared state that is invariant and does not change across objects. This is stored in the flyweight and shared.
+     2) Extrinsic State: The unique state that varies with each object and must be passed to the flyweight by the client when needed.
+     3) Flyweight Factory: A factory that manages and provides shared flyweight objects. It ensures that flyweights are reused and not duplicated.
+
+Real-World Use Cases
+    Text Editors:
+        Formatting characters and storing intrinsic properties (e.g., font style, size) as flyweights.
+
+    Game Development:
+        Sharing graphical data for frequently occurring objects like trees, cars, or NPCs.
+
+    Rendering Systems:
+        In graphical applications, textures or shapes are shared to reduce memory usage.
+
+    Data Caching:
+        Applications where objects representing data are reused from a pool instead of creating new instances every time.
+
+    Database Connection Pools:
+        Managing database connections efficiently by sharing connection objects.
+
+    String Interning:
+        In Java, the String.intern() method uses the Flyweight pattern to store strings in a shared pool.
+
+Caveats: When to Use and Not Use
+    When to Use:
+        Large Numbers of Objects: When there are many objects with similar intrinsic states.
+        High Memory Usage: When memory optimization is critical, and sharing object data can significantly reduce the memory footprint.
+        Immutable Data: When the shared state can be safely shared among objects without risk of modification.
+
+    When Not to Use:
+        Complex Extrinsic Data: If the extrinsic state is complex and varies significantly, managing it externally can become cumbersome.
+        Thread Safety Issues: Shared objects need to be immutable to avoid concurrency issues in multi-threaded environments.
+        Low Object Count: If the number of objects is small, the overhead of implementing the Flyweight pattern might outweigh its benefits.
+        Performance Overhead: The need to compute or pass extrinsic state every time an object is used might introduce a performance overhead.

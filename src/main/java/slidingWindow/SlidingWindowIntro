@@ -1,0 +1,83 @@
+Suppose you have an array
+    27, 45, 64, 2, 14, 3, 5, 8
+
+    And youre given a range
+
+    suppose 3
+
+    Now youre given to find the maximum sub array sum of given range ie
+
+    27, 45, 64 is a sub array
+    45, 64, 2 is a sub array
+    64, 2, 14 is a sub array
+    and so on
+
+    find all the sum and max.
+
+    So Brute force approach
+
+        for(i= 0-> n)
+        {
+            for(j=i;j<i+3;j++)
+            {
+                add all j values
+                store
+
+             }
+         }
+
+         From the stored values find max
+
+    Now are you doing any repitetive work?
+
+    Yes.
+    you are adding index 1, 2, 3
+    then addin 2, 3, 4
+    then 3, 4,5
+
+    so when adding 1,2, 3 youre already have the addition of 2,3
+    so why do it again in step 2?
+
+    In step 2:
+        Remove 1
+        add 4
+
+        Keep doing this.
+
+    So now we notice we are sliding the window, 1 index at a time.
+
+    So we know:
+        1) We have a window
+        2) The window is continuous
+        3) we slide the window.
+
+        So:
+            When question has array or string
+            and it is related to sub array/substring
+            we will need to find the largest/maximum/minimum
+            We will be given the window size
+
+        There are 2 types of sliding window problems,
+            1) fixed size window
+            2) variable size window
+
+            variable size:
+                Suppose youre given to find the largest subarray whose sum is 5
+
+
+   Problems:
+    1) Fixed size:
+        -> Maximum/minimum subarray of size k
+        -> 1st -ve in everyWindow sie of k
+        -> count occurence of anagrams
+        -> max of all sub arrays of size k
+
+
+    2) Variable size:
+        -> largest subarray of sum k
+        -> largest substring of k distinct character
+        -> length of largest substring no repeating characters
+        -> pick toy
+        -> minimum window substring
+
+

@@ -1,0 +1,5 @@
+When a function calls itself until a condition is met
+
+If a termination condition is not given or satisfied then the program will run till it runs out of memory
+
+You need to write a base condition which will stop

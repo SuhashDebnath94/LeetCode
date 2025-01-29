@@ -1,0 +1,33 @@
+SO abstract factory is a collection of factory methods
+
+The Abstract Factory pattern gives an interface that is responsible for creating familiies of related or dependent objects without specifying their concrete classes
+
+So the difference is that the factory method pattern constructs a single object but the abstract factory constucts a family of objects
+
+
+In FactoryMethod pattern:
+
+    We have a factory interface or abstract class
+    This has a number of concretions which are concrete factories
+    ANd this has factory method that returns some kind of product.
+
+    So a factory creates products
+    So teh factory is a interface which creates Concrete Products of type Product
+
+    So teh only change in Abstract Factory is that it does not only create a single product but multiple product
+    So the Factory method will have methods like getProductA() and getProductB and so on
+
+
+So whats the benefit of this?
+    So suppose we have a bunch of Product implementations but only specific pairs of that implementation makes sense to use together
+
+    eg:
+         Lets say we are building Platforms for different OS's
+         MacButton, WindowsButton, LinuxButton, MacAlert, WindowsAlert, LinuxAlert are two things built by Products
+         and MacButton and MacAlert make sense to be used together
+
+         So In factory you would not have control on if you accidentally mix a mac button and windows alert
+
+         So we have multiple ConcreteFactories
+         Like MacFactory, WindowsFactory, LinuxFactory
+

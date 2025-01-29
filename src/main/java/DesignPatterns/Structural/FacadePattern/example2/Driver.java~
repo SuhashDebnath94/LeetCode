@@ -1,0 +1,4 @@
+package DesignPatterns.Structural.FacadePattern.example2;
+
+public class Driver {
+}

@@ -1,0 +1,27 @@
+The Null Object Design Pattern is a behavioral design pattern that uses polymorphism to implement a default behavior for an object when an instance of a class would normally be null. Instead of checking for null references, the pattern provides a special NullObject class that implements the same interface as the real object, but with "do-nothing" behavior.
+This helps avoid NullPointerException and reduces the need for repetitive null checks in the code.
+
+Problem It Aims to Solve
+    In many cases, you might have an object that is expected to be passed around and interacted with, but there are scenarios where the object might be null.
+    Instead of checking for null every time the object is used, which can clutter the code and introduce errors, the Null Object Pattern provides a solution:
+
+    Avoid Null Checks: By using a null object that behaves like a real object, you can avoid explicit null checks.
+    Improve Code Readability: Instead of having conditional blocks checking for null values, you can rely on the default behavior of the NullObject.
+    Consistency: It ensures that the behavior of objects remains consistent across the system, even when they are not initialized.
+
+Key components:
+    Abstract Subject (Interface): Defines the common interface for real objects and the null object.
+    RealObject: The actual object that performs real operations.
+    NullObject: A subclass or implementation of the interface that performs no action or a default action when methods are called.
+    Client: The object that interacts with both real and null objects.
+
+When to Use:
+    Avoiding Repetitive Null Checks: When null checks are pervasive and result in cluttered or difficult-to-read code.
+    Ensuring Consistency: If you want to ensure that every object in a system has a consistent interface or behavior, even when it doesn't have real data.
+    Simplifying Code: When an object might be missing, and you want to use a default behavior without changing the structure or flow of the code.
+    Substituting Missing Objects: When a missing object is represented by a NullObject that implements the same interface as the real object.
+When Not to Use:
+    Complex Logic in Null Object: If the NullObject starts to implement complex logic or behaviors, it can defeat the purpose of the pattern and lead to confusing code.
+    Memory Overhead: If creating a NullObject increases memory consumption unnecessarily, especially if the system needs to handle large numbers of null objects.
+    Misuse of Polymorphism: If the use of the NullObject pattern causes an excessive reliance on polymorphism or adds unnecessary complexity,
+        it may be better to use other approaches like optional patterns or explicit null checks.

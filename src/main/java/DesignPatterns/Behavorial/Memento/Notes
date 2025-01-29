@@ -1,0 +1,18 @@
+The Memento Design Pattern is a behavioral design pattern that allows capturing the internal state of an object without exposing its structure.
+This captured state can be restored later, which is useful for implementing features like undo/redo functionality, saving and restoring object states, or creating checkpoints in a process.
+
+Problem It Aims to Solve
+    Objects may have complex internal states that need to be restored at later points in time.
+    However, exposing the internal state through direct getter methods violates encapsulation.
+
+The Memento pattern allows:
+    Saving State: The internal state can be captured and stored externally without exposing the object’s internal implementation.
+    Restoring State: The object’s state can be restored without needing to directly modify its internal structure.
+    Encapsulation Preservation: The object’s internal state is hidden, and the changes are managed through the memento, preserving encapsulation.
+Without the Memento pattern, maintaining historical states would either require exposing too much of the object’s internal structure or making changes to the object each time you need to store and retrieve state.
+
+Key Components
+    Memento (State): A simple object that stores the internal state of the originator object.
+    Originator: The object whose state needs to be saved and restored.
+    Caretaker: The object that holds and manages the mementos. It doesn’t alter or inspect the content of the mementos but is responsible for saving and restoring them.
+

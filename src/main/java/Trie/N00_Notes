@@ -1,0 +1,127 @@
+When is trie data structure used?
+    void insert(String word) Inserts the string word into the trie.
+    boolean search(String word) Returns true if the string word is in the trie (i.e., was inserted before), and false otherwise.
+    boolean startsWith(String prefix) Returns true if there is a previously inserted string word that has the prefix prefix, and false otherwise.
+
+
+    A Trie contains an array of size 26 and and boolean fliag
+    trie{
+        trie[26]
+        boolean flag
+        }
+
+        in 26
+        0 -> a
+        1 -> b
+        ......
+        ....
+        ..
+        26 -> z
+
+        we will insert
+        apple
+        apps
+        apxl
+        bac
+
+
+        for inserting apple
+        insert a in first trie
+        You create another trie (this will be a's reference trie)
+        first trie will be pointing to the new trie with size 26
+        check if p exists in new reference trie
+            if no
+        then insert p
+        You create another trie (this will be p's reference trie) and set the flag as false
+        check if p exists in new reference trie
+           if no
+        then insert p
+        You create another trie (this will be p's reference trie) and set the flag as false
+        check if l exists in new reference trie
+           if no
+        then insert l
+        You create another trie (this will be l's reference trie) and set the flag as false
+        check if e exists in new reference trie
+           if no
+        then insert e
+        You create another trie (this will be e's reference trie) and set the flag as true since this is end of word
+
+        then we will insert apps
+        check first trie reference if it has a
+        yes
+        check reference of a does it have p
+        yes
+        check reference of p does it have p
+        yes
+        check reference of p does it have s
+        no
+        insert s in the reference trie of p
+        create a reference trie for s and set the flag as true since this is end of word
+
+        then we will insert apxl
+        check first trie reference if it has a
+        yes
+        check reference of a does it have p
+        yes
+        check reference of p does it have x
+        no
+        insert x in the reference trie of p
+        create a reference trie for x and set the flag as false
+        check reference of p does it have l
+        no
+        insert l in the reference trie of x
+        create a reference trie for l and set the flag as true since this is end of word
+
+        for inserting bac
+        check first trie reference if it has b
+        no
+        insert b in the first reference trie
+        create a reference trie for b and set the flag as true since this is end of word
+
+        and so on
+
+    Search functionality:
+        Search for apps
+
+        Check first reference trie for a
+        yes
+        check its reference trie for p
+        yes
+        check its reference trie for p
+        yes
+        check its reference trie for s
+        yes
+        check if boolean is true
+        yes
+
+        return true.
+
+
+        Search for appl
+
+                Check first reference trie for a
+                yes
+                check its reference trie for p
+                yes
+                check its reference trie for p
+                yes
+                check its reference trie for l
+                yes
+                check if boolean is true
+                no
+
+                return false.
+
+    Starts with functionality:
+        starts with app
+
+        Check first reference trie for a
+                yes
+                check its reference trie for p
+                yes
+                check its reference trie for p
+                yes
+                check its reference trie for s
+                yes
+
+                return true.
