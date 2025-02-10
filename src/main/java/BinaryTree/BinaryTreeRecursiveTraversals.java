@@ -5,17 +5,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 // Define the Binary Tree Node class
-class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    // Constructor to create a new node
-    TreeNode(int item) {
-        val = item;
-        left = right = null;
-    }
-}
-
 public class BinaryTreeRecursiveTraversals {
 
     // Root of the tree
