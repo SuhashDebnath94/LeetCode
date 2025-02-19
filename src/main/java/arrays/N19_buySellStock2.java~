@@ -51,7 +51,7 @@ public class N19_buySellStock2 {
         }
         if (sold == false) {
             sell = prices[prices.length - 1];
-            profit += (sell - buy);
+            profit = profit + (sell - buy);
         }
         return profit;
     }

@@ -2,7 +2,7 @@ package arrays;
 
 import java.util.Arrays;
 
-public class N21_SetMatrixZero {
+public class N22_SetMatrixZero {
 
 //    Given a blind75.matrix if an element in the blind75.matrix is 0 then you will have to set its entire column and row to 0 and then return the blind75.matrix.
 

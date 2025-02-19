@@ -3,7 +3,7 @@ package arrays;
 import java.util.ArrayList;
 import java.util.List;
 
-public class N23_SpiralMatrix {
+public class N24_SpiralMatrix {
 //    Given a Matrix, print the given blind75.matrix in spiral order.
 //    Example 1:
 //    Input: Matrix[][] = { { 1, 2, 3, 4 },

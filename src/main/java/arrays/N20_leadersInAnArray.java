@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class N19_leadersInAnArray {
+public class N20_leadersInAnArray {
     /**
      * Given an array return an array containing all the leader elements
      * An element is a leader when none of the elements on the right is greater than that element

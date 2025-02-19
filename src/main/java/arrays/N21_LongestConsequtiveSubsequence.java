@@ -1,10 +1,8 @@
 package arrays;
 
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-public class N20_LongestConsequtiveSubsequence {
+public class N21_LongestConsequtiveSubsequence {
     /**
      * Find the longest consecutive subsequence in an array
      * {4,100, 101, 3, 102, 2, 1, 1}

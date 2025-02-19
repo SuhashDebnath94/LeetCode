@@ -2,7 +2,7 @@ package arrays;
 
 import java.util.*;
 
-public class N24_MajorityElement2 {
+public class N26_MajorityElement2 {
     /**
      * Given an array of n elements find all the elements that appear more than n/3 times
      *
@@ -10,29 +10,20 @@ public class N24_MajorityElement2 {
      *  The Maxximum number of elements that can appear more tha n/3 times is 2
      *  The minimum umber is 1
      */
+
+    /*
+     we track at most two potential candidates and count their frequencies.
+
+    Why two candidates?
+    A number can only appear more than n/3 times if there are at most two such numbers.
+    Think of n = 9: If an element appears more than 3 times, there can’t be more than two such elements.
+    Steps:
+    Find two potential candidates for majority elements.
+    Verify if they truly appear more than n/3 times.
+     */
     public static void main(String[] args) {
         int[] arr = {1, 2, 2, 3, 4, 2, 2, 3, 2};
         System.out.println(findMajorityElement2_2(arr));
-    }
-
-    private static Set<Integer> findMajorityElement2(int[] arr) {
-        HashMap<Integer, Integer> map=new HashMap<>();
-        int m=arr.length/3;
-        Set<Integer> res=new HashSet<>();
-
-        for(int el: arr){
-            if(map.containsKey(el)){
-                map.put(el, map.get(el)+1);
-
-                if(map.get(el)> m){
-                    res.add(el);
-                }
-            }
-            else {
-                map.put(el, 1);
-            };
-        }
-        return res;
     }
 
     //Extension of Moores Algorithm
@@ -62,7 +53,7 @@ public class N24_MajorityElement2 {
         }
         List<Integer> result=new ArrayList<>();
         counter1=0;
-        counter2=2;
+        counter2=0;
         for(int j=0;j< arr.length;j++){
             if(el1==arr[j]) counter1++;
             if(el2==arr[j]) counter2++;

@@ -3,7 +3,7 @@ package arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class N27_containDuplicate {
+public class N28_containDuplicate {
 //    Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 //
 //    Input: nums = [1,2,3,1]
